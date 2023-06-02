@@ -1,4 +1,4 @@
-package com.example.medical_platform_android.ui.home;
+package com.example.medical_platform_android.ui.bottom_fragment;
 
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
