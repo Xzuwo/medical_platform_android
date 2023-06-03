@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.Register">
+    <LinearLayout
+        android:background="@drawable/l"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:layout_marginTop="100dp">
+            <androidx.cardview.widget.CardView
+                android:id="@+id/Register_img_item_card"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:cardCornerRadius="50dp">
+                <ImageView
+                    android:id="@+id/Register_img_item_images"
+                    android:layout_width="100dp"
+                    android:layout_height="100dp"
+                    android:src="@drawable/main_user"
+                    android:scaleType="fitXY"/>
+            </androidx.cardview.widget.CardView>
+        </RelativeLayout>
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            >
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/username"/>
+            <EditText
+                android:id="@+id/Register_Username"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="  请输入账号"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            >
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/name"/>
+            <EditText
+                android:id="@+id/Register_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="  请输入姓名"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/password"/>
+            <EditText
+                android:id="@+id/Register_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="  请输入密码"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/password"/>
+            <EditText
+                android:id="@+id/Register_Ensure_Password"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:inputType="textPassword"
+                android:hint="  请确认密码"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="20dp"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="50dp"
+                android:layout_height="50dp"
+                android:src="@drawable/sex"/>
+            <RadioGroup
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <RadioButton
+                    android:id="@+id/Radio_Female"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="女"
+                    android:textSize="20sp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginLeft="20dp" />
+                <RadioButton
+                    android:id="@+id/Radio_Male"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="男"
+                    android:textSize="20sp"/>
+            </RadioGroup>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center">
+            <Button
+                android:id="@+id/Register"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="注册"
+                android:textSize="20sp"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="280dp"
+            android:layout_height="50dp"
+            android:orientation="horizontal"
+
+            android:layout_gravity="center">
+            <TextView
+                android:id="@+id/Register_Return_ToLogin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已有账号？返回登录"
+                android:layout_gravity="center"
+                android:layout_marginLeft="80dp"/>
+        </LinearLayout>
+
+    </LinearLayout>
+</RelativeLayout>
