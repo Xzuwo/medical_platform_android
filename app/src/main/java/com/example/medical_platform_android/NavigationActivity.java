@@ -1,5 +1,6 @@
 package com.example.medical_platform_android;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
@@ -7,7 +8,8 @@ import android.view.View;
 import android.view.Menu;
 
 import com.example.medical_platform_android.ui.bottom_fragment.HomeFragment;
-import com.example.medical_platform_android.ui.gallery.GalleryFragment;
+//import com.example.medical_platform_android.ui.gallery.GalleryFragment;
+import com.example.medical_platform_android.ui.side_menu.NavGraphEmptyFragment;
 import com.example.medical_platform_android.ui.side_menu.SideLogOutFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.navigation.NavigationBarView;
@@ -15,9 +17,14 @@ import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 import androidx.navigation.NavController;
+import androidx.navigation.NavDestination;
 import androidx.navigation.Navigation;
+import androidx.navigation.fragment.NavHostFragment;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
 import androidx.drawerlayout.widget.DrawerLayout;
@@ -30,6 +37,8 @@ public class NavigationActivity extends AppCompatActivity {
     private AppBarConfiguration mAppBarConfiguration;
     private ActivityNavigationBinding binding;
 
+    private BottomNavigationView navView;
+    private NavController navController;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -38,7 +47,7 @@ public class NavigationActivity extends AppCompatActivity {
         setContentView(binding.getRoot());
 
         //底部板块
-        setSupportActionBar(binding.appBarNavigation.toolbar);
+//        setSupportActionBar(binding.appBarNavigation.toolbar);
 
 
 
@@ -47,30 +56,19 @@ public class NavigationActivity extends AppCompatActivity {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         AppBarConfiguration appBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.bottom_home, R.id.bottom_gallery, R.id.bottom_slideshow)
+                R.id.bottom_home, R.id.bottom_drugs, R.id.bottom_order)
                 .build();
         NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(binding.navView, navController);
 
-        BottomNavigationView navView = findViewById(R.id.main_bottom);
-        navView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
-            @Override
-            public void onNavigationItemReselected(@NonNull MenuItem item) {
-                Log.d("TAG","点击bottomNavigationView"+item.getItemId());
-                switch (item.getItemId()){
-                    case R.id.bottom_home:
-                        changeFragment(new HomeFragment());
-                        break;
-                    case R.id.bottom_gallery:
-                        changeFragment(new GalleryFragment());
-                        break;
-                    case R.id.bottom_slideshow:
-                        changeFragment(new SideLogOutFragment());
-                }
+        navView = findViewById(R.id.main_bottom);
 
-            }
-        });
+        View fragment = this.findViewById(R.id.nav_host_fragment_content_navigation);
+
+
+
+
 
 
         //侧边滑块
@@ -95,9 +93,46 @@ public class NavigationActivity extends AppCompatActivity {
 
 
 
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
+//        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
+//        NavigationUI.setupActionBarWithNavController(this, navController, appBarConfiguration);
         NavigationUI.setupWithNavController(navigationView, navController);
+
+
+        initView();
+        setOnClickListener();
+    }
+
+    public void setOnClickListener(){
+        navController.addOnDestinationChangedListener(new NavController.OnDestinationChangedListener() {
+            @Override
+            public void onDestinationChanged(@NonNull NavController navController, @NonNull NavDestination navDestination, @Nullable Bundle bundle) {
+                Log.d(TAG, "onDestinationChanged: --------修改页面");
+//                changeFragment(new NavGraphEmptyFragment());
+            }
+        });
+
+        navView.setOnItemReselectedListener(new NavigationBarView.OnItemReselectedListener() {
+            @Override
+            public void onNavigationItemReselected(@NonNull MenuItem item) {
+                NavController navController = Navigation.findNavController(NavigationActivity.this, R.id.nav_host_fragment_content_navigation);
+                Log.d("TAG","点击bottomNavigationView"+item.getItemId());
+                switch (item.getItemId()){
+                    case R.id.bottom_home:
+                        navController.navigate(R.id.bottom_home);
+                        break;
+                    case R.id.bottom_drugs:
+                        navController.navigate(R.id.bottom_drugs);
+                        break;
+                    case R.id.bottom_order:
+                        navController.navigate(R.id.bottom_order);
+                }
+
+            }
+        });
+    }
+
+    private void initView(){
+        navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
     }
 
     @Override
@@ -117,7 +152,25 @@ public class NavigationActivity extends AppCompatActivity {
 
 
     public void changeFragment(Fragment fragment){
-        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_navigation,fragment).commit();
+
+// 获取NavController
+        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
+
+// 跳转到指定的Fragment
+        navController.navigate(R.id.side_login_out);
+
+
+
+//        FragmentManager fragmentManager = getSupportFragmentManager();
+//        FragmentTransaction fragmentTransaction = fragmentManager.beginTransaction();
+//        fragmentTransaction.replace(R.id.nav_host_fragment_content_navigation, fragment);
+//        fragmentTransaction.addToBackStack(null);
+//        fragmentTransaction.commit();
+
+
+
+
+//        getSupportFragmentManager().beginTransaction().replace(R.id.nav_host_fragment_content_navigation,fragment).commit();
 
     }
 

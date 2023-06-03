@@ -23,6 +23,38 @@
         android:label="退出登录"
         tools:layout="@layout/fragment_side_log_out" />
 
+    <fragment
+        android:id="@+id/nav_graph_empty"
+        android:name="com.example.medical_platform_android.ui.side_menu.NavGraphEmptyFragment"
+        android:label="空页面"
+        tools:layout="@layout/fragment_nav_graph_empty" />
+    <fragment
+        android:id="@+id/side_doctor_certification"
+        android:name="com.example.medical_platform_android.ui.side_menu.DoctorCertificationFragment"
+        android:label="医生认证"
+        tools:layout="@layout/fragment_doctor_certification" />
+    <fragment
+        android:id="@+id/side_health"
+        android:name="com.example.medical_platform_android.ui.side_menu.HealthyFragment"
+        android:label="健康状态"
+        tools:layout="@layout/fragment_healthy" />
+    <fragment
+        android:id="@+id/side_like"
+        android:name="com.example.medical_platform_android.ui.side_menu.LikeFragment"
+        android:label="我的喜欢"
+        tools:layout="@layout/fragment_like" />
+    <fragment
+        android:id="@+id/side_pharmaceutical_certification"
+        android:name="com.example.medical_platform_android.ui.side_menu.PharmaceuticalCertificationFragment"
+        android:label="药厂认证"
+        tools:layout="@layout/fragment_pharmaceutical_certification" />
+<!--    <fragment-->
+<!--        android:id="@+id/side_password_change"-->
+<!--        android:name="com.example.medical_platform_android.ui.side_menu.PharmaceuticalCertificationFragment"-->
+<!--        android:label="fragment_pharmaceutical_certification"-->
+<!--        tools:layout="@layout/fragment_pharmaceutical_certification" />-->
+
+
 
 
 
@@ -34,17 +66,17 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/bottom_gallery"
-        android:name="com.example.medical_platform_android.ui.gallery.GalleryFragment"
+        android:id="@+id/bottom_drugs"
+        android:name="com.example.medical_platform_android.ui.bottom_fragment.DrugsFragment"
         android:label="药品"
-        tools:layout="@layout/fragment_gallery" />
+        tools:layout="@layout/fragment_drugs" />
 
 
     <fragment
-        android:id="@+id/bottom_slideshow"
-        android:name="com.example.medical_platform_android.ui.slideshow.SlideshowFragment"
+        android:id="@+id/bottom_order"
+        android:name="com.example.medical_platform_android.ui.bottom_fragment.OrderFragment"
         android:label="订单"
-        tools:layout="@layout/fragment_slideshow" />
+        tools:layout="@layout/fragment_order" />
 
 
 </navigation>
