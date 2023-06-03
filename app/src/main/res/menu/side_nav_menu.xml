@@ -3,14 +3,30 @@
 
     <item
         android:id="@+id/side_personal"
-        android:icon="@drawable/ic_menu_camera"
+        android:icon="@drawable/icon_personal"
         android:title="个人中心" />
     <item
+        android:id="@+id/side_health"
+        android:icon="@drawable/icon_health"
+        android:title="健康状态" />
+    <item
+        android:id="@+id/side_like"
+        android:icon="@drawable/icon_like"
+        android:title="我的喜欢" />
+    <item
+        android:id="@+id/side_pharmaceutical_certification"
+        android:icon="@drawable/icon_pharmaceutical"
+        android:title="药厂认证" />
+    <item
+        android:id="@+id/side_doctor_certification"
+        android:icon="@drawable/icon_doctor"
+        android:title="医生认证" />
+    <item
         android:id="@+id/side_password_change"
-        android:icon="@drawable/ic_menu_gallery"
+        android:icon="@drawable/icon_password_change"
         android:title="密码修改" />
     <item
         android:id="@+id/side_login_out"
-        android:icon="@drawable/ic_menu_slideshow"
+        android:icon="@drawable/icon_login_out"
         android:title="退出登录 "/>
 </menu>

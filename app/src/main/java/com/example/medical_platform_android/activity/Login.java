@@ -34,6 +34,20 @@ public class Login extends AppCompatActivity {
         setContentView(R.layout.activity_login);
         initView();
         SetListener();
+        xzwtest();
+
+    }
+
+    private void xzwtest() {
+        Button loginResponse =this.findViewById(R.id.xzw_login_test);
+        loginResponse.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent=new Intent(Login.this,NavigationActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     private void SetListener() {
