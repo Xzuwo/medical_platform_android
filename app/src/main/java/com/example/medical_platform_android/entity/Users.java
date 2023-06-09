@@ -5,6 +5,7 @@ import com.google.android.material.timepicker.TimeFormat;
 import java.io.Serializable;
 import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
+import java.util.Date;
 
 public class Users implements Serializable {
     private Integer id;
@@ -12,8 +13,8 @@ public class Users implements Serializable {
     private String password;
     private String name;
     private String gender;
-//    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
-    private String birthdate;
+    //    @JsonFormat(pattern = "yyyy-MM-dd", timezone = "GMT+8")
+    private Date birthdate;
     private String medicationHistory;
     private String geneticDiseaseHistory;
     private String headImage;
@@ -24,7 +25,7 @@ public class Users implements Serializable {
     public Users() {
     }
 
-    public Users(Integer id, String username, String password, String name, String gender, String birthdate, String medicationHistory, String geneticDiseaseHistory, String headImage, String a, String b, String c) {
+    public Users(Integer id, String username, String password, String name, String gender, Date birthdate, String medicationHistory, String geneticDiseaseHistory, String headImage, String a, String b, String c) {
         this.id = id;
         this.username = username;
         this.password = password;
@@ -79,11 +80,11 @@ public class Users implements Serializable {
         this.gender = gender;
     }
 
-    public String getBirthdate() {
+    public Date getBirthdate() {
         return birthdate;
     }
 
-    public void setBirthdate(String birthdate) {
+    public void setBirthdate(Date birthdate) {
         this.birthdate = birthdate;
     }
 

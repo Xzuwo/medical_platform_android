@@ -54,11 +54,6 @@
 <!--        android:label="fragment_pharmaceutical_certification"-->
 <!--        tools:layout="@layout/fragment_pharmaceutical_certification" />-->
 
-
-
-
-
-
     <fragment
         android:id="@+id/bottom_home"
         android:name="com.example.medical_platform_android.ui.bottom_fragment.HomeFragment"

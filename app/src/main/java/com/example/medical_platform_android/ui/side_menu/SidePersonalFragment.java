@@ -1,5 +1,6 @@
 package com.example.medical_platform_android.ui.side_menu;
 
+import android.content.Context;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -7,60 +8,51 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import com.example.medical_platform_android.R;
+import com.example.medical_platform_android.utils.SPUtil;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SidePersonalFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
+
 public class SidePersonalFragment extends Fragment {
+    private TextView username,name,birthdate,gender;
+    private ImageView headImage;
+    private TextView medication_history;
+    private View rootView;
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
 
     public SidePersonalFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SidePersonalFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SidePersonalFragment newInstance(String param1, String param2) {
-        SidePersonalFragment fragment = new SidePersonalFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_side_personal, container, false);
+        rootView =  inflater.inflate(R.layout.fragment_side_personal, container, false);
+        initView();
+        return rootView;
+    }
+
+    private void initView() {
+        username = rootView.findViewById(R.id.personal_username);
+        name = rootView.findViewById(R.id.personal_name);
+        gender = rootView.findViewById(R.id.personal_gender);
+        birthdate = rootView.findViewById(R.id.personal_birthdate);
+        headImage = rootView.findViewById(R.id.personal_img_item_images);
+        medication_history = rootView.findViewById(R.id.personal_medication_history);
+        username.setText(SPUtil.getString(getContext(),"username"));
+        name.setText(SPUtil.getString(getContext(),"name"));
+        gender.setText(SPUtil.getString(getContext(),"gender"));
+        birthdate.setText(SPUtil.getString(getContext(),"birthdate"));
+        medication_history.setText(SPUtil.getString(getContext(),"medication_history"));
+        Context context = getActivity().getApplicationContext();
+        int resourceId = getResources().getIdentifier(SPUtil.getString(getContext(),"headImage") + "", "drawable", context.getPackageName());
+        headImage.setImageResource(resourceId);
+    }
+
+    public String getPackageName() {
+        throw new RuntimeException("Stub!");
     }
 }

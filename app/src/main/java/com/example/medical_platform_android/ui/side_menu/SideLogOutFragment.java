@@ -1,6 +1,8 @@
 package com.example.medical_platform_android.ui.side_menu;
 
 import android.app.NativeActivity;
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
@@ -10,62 +12,46 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.example.medical_platform_android.NavigationActivity;
 import com.example.medical_platform_android.R;
+import com.example.medical_platform_android.activity.Login;
+import com.example.medical_platform_android.utils.SPUtil;
 
-/**
- * A simple {@link Fragment} subclass.
- * Use the {@link SideLogOutFragment#newInstance} factory method to
- * create an instance of this fragment.
- */
 public class SideLogOutFragment extends Fragment {
 
-    // TODO: Rename parameter arguments, choose names that match
-    // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-    private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
-
-    // TODO: Rename and change types of parameters
-    private String mParam1;
-    private String mParam2;
+    private View rootView;
+    private Context context;
 
     public SideLogOutFragment() {
         // Required empty public constructor
     }
 
-    /**
-     * Use this factory method to create a new instance of
-     * this fragment using the provided parameters.
-     *
-     * @param param1 Parameter 1.
-     * @param param2 Parameter 2.
-     * @return A new instance of fragment SideLogOutFragment.
-     */
-    // TODO: Rename and change types and number of parameters
-    public static SideLogOutFragment newInstance(String param1, String param2) {
-        SideLogOutFragment fragment = new SideLogOutFragment();
-        Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
-        fragment.setArguments(args);
-        return fragment;
-    }
-
-    @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
-        }
-
-    }
-
-
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_side_log_out, container, false);
+        rootView = inflater.inflate(R.layout.fragment_side_log_out, container, false);
+        
+        initView();
+        setListeners();
+        return rootView;
+    }
+
+    private void setListeners() {
+        context = getActivity();
+        Intent intent = new Intent(context, Login.class);
+        SPUtil.removeString(context,"token");
+        SPUtil.removeString(context,"userId");
+        SPUtil.removeString(context,"username");
+        SPUtil.removeString(context,"name");
+        SPUtil.removeString(context,"birthdate");
+        SPUtil.removeString(context,"gender");
+        SPUtil.removeString(context,"headImage");
+        SPUtil.removeString(context,"medication_history");
+        context.startActivity(intent);
+
+    }
+
+    private void initView() {
     }
 }

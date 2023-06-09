@@ -52,7 +52,7 @@
             android:layout_height="50dp"
             android:orientation="horizontal"
             android:layout_gravity="center"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             >
             <ImageView
                 android:layout_width="50dp"
@@ -69,7 +69,7 @@
             android:layout_width="280dp"
             android:layout_height="50dp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center">
             <ImageView
                 android:layout_width="50dp"
@@ -85,20 +85,20 @@
 
         <LinearLayout
             android:layout_width="280dp"
-            android:layout_height="50dp"
+            android:layout_height="110dp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
+            android:layout_marginTop="20dp"
             android:layout_gravity="center">
             <ImageView
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                android:src="@drawable/password"/>
-            <EditText
-                android:id="@+id/Register_Ensure_Password"
+                android:layout_height="80dp"
+                android:src="@drawable/birthdate"/>
+            <DatePicker
+                android:id="@+id/Register_birthdate"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:inputType="textPassword"
-                android:hint="  请确认密码"/>
+                android:layout_height="match_parent"
+                android:calendarViewShown="false"
+                android:datePickerMode="spinner"/>
         </LinearLayout>
 
         <LinearLayout
@@ -111,13 +111,15 @@
                 android:layout_width="50dp"
                 android:layout_height="50dp"
                 android:src="@drawable/sex"/>
+
             <RadioGroup
+                android:id="@+id/Register_gender_selected"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:checkedButton="@id/radio_gir"
                 android:orientation="horizontal">
-
                 <RadioButton
-                    android:id="@+id/Radio_Female"
+                    android:id="@+id/radio_gir"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="女"
@@ -125,7 +127,7 @@
                     android:layout_marginRight="20dp"
                     android:layout_marginLeft="20dp" />
                 <RadioButton
-                    android:id="@+id/Radio_Male"
+                    android:id="@+id/radio_box"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:text="男"
@@ -136,13 +138,14 @@
         <LinearLayout
             android:layout_width="280dp"
             android:layout_height="50dp"
+            android:layout_marginTop="20dp"
             android:orientation="horizontal"
-            android:layout_marginTop="10dp"
             android:layout_gravity="center">
             <Button
                 android:id="@+id/Register"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
                 android:text="注册"
                 android:textSize="20sp"/>
         </LinearLayout>
