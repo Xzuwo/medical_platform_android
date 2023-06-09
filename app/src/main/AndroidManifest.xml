@@ -20,7 +20,15 @@
             android:theme="@style/Theme.Medical_platform_android.NoActionBar"></activity>
         <activity
             android:name=".activity.Login"
-            android:exported="true"></activity>
+            android:exported="true"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
         <activity
             android:name=".activity.Register"
             android:exported="false"></activity>
@@ -31,13 +39,8 @@
         </activity>
         <activity
             android:name=".ui.activity.ContactsActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+            android:exported="true"
+            ></activity>
     </application>
 
 </manifest>

@@ -125,6 +125,12 @@ public class Login extends AppCompatActivity {
 
             @Override
             public void failure(Exception e) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        Toast.makeText(Login.this, "连接错误", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
             }
         });
