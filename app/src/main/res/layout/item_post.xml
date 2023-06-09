@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/background_color"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        app:cardCornerRadius="10dp"
+        tools:ignore="MissingConstraints">
+
+    <!-- 朋友圈适配器布局文件 -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="#FFFFFF"
+        tools:ignore="MissingConstraints">
+
+        <!-- 用户信息部分 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="67dp"
+            android:orientation="horizontal"
+            android:paddingHorizontal="20dp">
+
+            <!-- 用户头像 -->
+            <ImageView
+                android:id="@+id/posts_item_avatar"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:src="@drawable/icon_pharmaceutical" />
+
+            <!-- 用户名和发布时间 -->
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_weight="1"
+                android:orientation="vertical">
+
+                <!-- 用户名 -->
+                <TextView
+                    android:id="@+id/posts_item_username"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="用户名"
+                    android:textColor="@color/black"
+                    android:textSize="20dp"
+                    android:textStyle="bold" />
+
+                <!-- 发布时间 -->
+                <TextView
+                    android:id="@+id/posts_item_publish_time"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="发布时间"
+                    android:textColor="@color/black"
+                    android:textSize="12sp" />
+
+            </LinearLayout>
+
+<!--            <ImageView-->
+<!--                android:id="@+id/posts_item_follow"-->
+<!--                android:layout_width="48dp"-->
+<!--                android:layout_height="48dp"-->
+<!--                android:src="@drawable/button_follow" />-->
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layoutDirection="rtl"
+            android:id="@+id/layout_item_posts_a"
+            android:orientation="horizontal">
+
+            <Button
+                android:id="@+id/posts_item_not_interested"
+                android:layout_width="wrap_content"
+                android:layout_height="31dp"
+                android:background="@color/black"
+                android:enabled="false"
+                android:text="不感兴趣"
+                android:textSize="8dp" />
+
+            <TextView
+                android:id="@+id/posts_item_a"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textColor="@color/black"
+                android:text="正文"
+                android:textSize="16sp" />
+
+
+        </LinearLayout>
+        <!-- 正文部分 -->
+
+        <WebView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/posts_item_context"
+            tools:ignore="InvalidId,WebViewLayout" />
+        <!-- 图片部分 -->
+
+
+            <GridView
+                android:id="@+id/posts_item_images"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:horizontalSpacing="10dp"
+                android:verticalSpacing="10dp"
+                android:stretchMode="columnWidth" />
+
+        <!-- 底部操作栏 -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layoutDirection="rtl"
+            android:orientation="horizontal">
+
+
+            <!--             更多操作按钮 -->
+            <ImageView
+                android:id="@+id/posts_item_more"
+                android:layout_width="52dp"
+                android:layout_height="32dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
+                android:src="@drawable/posts_item_more" />
+            <!-- 对话按钮 -->
+<!--            <ImageView-->
+<!--                android:id="@+id/posts_item_dialogue"-->
+<!--                android:layout_width="wrap_content"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                android:paddingLeft="10dp"-->
+<!--                android:src="@drawable/button_dialogue" />-->
+
+            <TextView
+                android:id="@+id/posts_item_comment_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="30dp"
+                android:paddingHorizontal="5dp"
+                android:textColor="#7A7A7A"
+                android:text="30" />
+
+            <!-- 评论按钮 -->
+            <ImageView
+                android:id="@+id/posts_item_comment"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="30dp"
+                android:src="@drawable/button_comment" />
+
+            <TextView
+                android:id="@+id/posts_item_like_count"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="#7F7F7F"
+                android:textSize="30dp"
+                android:paddingHorizontal="5dp"
+                android:text="20" />
+            <!-- 点赞按钮 -->
+
+
+
+            <ImageView
+                android:id="@+id/posts_item_like"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="0dp"
+                android:src="@drawable/button_like_no" />
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
