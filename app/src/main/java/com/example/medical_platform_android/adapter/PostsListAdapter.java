@@ -149,7 +149,7 @@ public class PostsListAdapter extends RecyclerView.Adapter<PostsListAdapter.MyPo
             public void onClick(View view) {
                 Log.d("TAG", "onClick: ________________________");
 //                判断是否登录
-                if(SPUtil.getString(context,"userid")!=null || SPUtil.getString(context,"userid")==""){
+                if(SPUtil.getString(context,"userid")==null || SPUtil.getString(context,"userid")==""){
 //                    未登录
                     ((Activity)context).runOnUiThread(new Runnable() {
                         @Override
@@ -161,8 +161,8 @@ public class PostsListAdapter extends RecyclerView.Adapter<PostsListAdapter.MyPo
                 }
                 Map<String,Object> t=new HashMap<>();
                 t.put("userid",SPUtil.getString(context,"userid"));
-                t.put("postId",posts.getPostsId());
-                OkhttpUtil.postRequest(UrlConstants.xzw_url + "like/addLike", t, new ResponseCallback() {
+                t.put("postsId",posts.getPostsId());
+                OkhttpUtil.postRequest(UrlConstants.xzw_url + "likes/addLike", t, new ResponseCallback() {
                     @Override
                     public void response(String res) {
                         if(res.startsWith("330")){
@@ -174,22 +174,35 @@ public class PostsListAdapter extends RecyclerView.Adapter<PostsListAdapter.MyPo
                                 }
                             });
                         }else{
-                            if(posts.isLikeState()){
-        //                    一点赞
-        //                    取消点赞
-                                holder.posts_item_like.setImageResource(R.drawable.button_like_no);
-                                holder.posts_item_like_count.setText((Integer.parseInt(holder.posts_item_like_count.getText().toString())-1)+"");
+                            ((Activity)context).runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    if(posts.isLikeState()){
+                                        //                    一点赞
+                                        //                    取消点赞
 
-                            }else{
-                                holder.posts_item_like.setImageResource(R.drawable.button_like);
-                                holder.posts_item_like_count.setText((Integer.parseInt(holder.posts_item_like_count.getText().toString())+1)+"");
-                            }
+                                        posts.setLikeCount(posts.getLikeCount()-1);
+                                        holder.posts_item_like.setImageResource(R.drawable.button_like_no);
+//                                        holder.posts_item_like_count.setText((posts.getLikeCount()-1)+"");
+
+                                    }else{
+
+                                        posts.setLikeCount(posts.getLikeCount()+1);
+                                        holder.posts_item_like.setImageResource(R.drawable.button_like);
+//                                        holder.posts_item_like_count.setText((posts.getLikeCount()+1)+"");
+                                    }
+                                    posts.setLikeState(!posts.isLikeState());
+                                    postsAndUsersList.set(position,posts);
+                                    refreshAdapter(position);
+                                }
+                            });
+
                         }
                     }
 
                     @Override
                     public void failure(Exception e) {
-
+                        Log.d("TAG", "failure: 报错——————"+e);
                     }
                 });
 
@@ -286,14 +299,16 @@ public class PostsListAdapter extends RecyclerView.Adapter<PostsListAdapter.MyPo
             @Override
             public void onClick(View view) {
                 postsAndUsersList.remove(position);
-                notifyItemRemoved(position);
-                notifyItemRangeChanged(position,postsAndUsersList.size()-position);
+                refreshAdapter(position);
             }
         });
 
     }
-
-
+//刷新适配器
+    private void refreshAdapter(int position){
+        notifyItemRemoved(position);
+        notifyItemRangeChanged(position,postsAndUsersList.size()-position);
+    }
 
 
     @Override

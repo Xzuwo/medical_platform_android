@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <ImageView
+            android:id="@+id/UserList_Image"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/main_user"/>
+        <TextView
+            android:id="@+id/UserList_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toRightOf="@id/UserList_Image"
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
+            android:text="姓  名"
+            android:textSize="32dp"/>
+
+        <TextView
+            android:id="@+id/UserList_username"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:layout_toRightOf="@id/UserList_name"
+            android:padding="10dp"
+            android:text=""
+            android:textSize="24dp" />
+
+        <ImageView
+            android:id="@+id/UserList_edit"
+            android:src="@drawable/edit"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginRight="10dp"
+            android:layout_marginTop="5dp"
+            android:layout_toLeftOf="@+id/UserList_Delete"/>
+        <ImageView
+            android:src="@drawable/delete"
+            android:id="@+id/UserList_Delete"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="5dp"
+            android:layout_alignParentRight="true" />
+
+    </RelativeLayout>
+
+</LinearLayout>

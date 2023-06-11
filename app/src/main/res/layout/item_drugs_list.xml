@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="10dp"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:id="@+id/Drug_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="3dp"
+            android:padding="10dp"
+            android:text="阿莫西林"
+            android:textSize="35dp" />
+
+        <TextView
+            android:id="@+id/Drug_manufacturer"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="60dp"
+            android:padding="10dp"
+            android:text="xx厂商"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Drug_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="240dp"
+            android:layout_marginTop="20dp"
+            android:padding="10dp"
+            android:text="10.00元"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/Drug_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="90dp"
+            android:layout_marginTop="60dp"
+            android:padding="10dp"
+            android:text="治疗感染"
+            android:textSize="20sp" />
+
+        <ImageView
+            android:id="@+id/DrugsList_edit"
+            android:layout_width="60dp"
+            android:layout_height="100dp"
+            android:layout_marginRight="10dp"
+            android:layout_toLeftOf="@+id/DrugsList_Delete"
+            android:src="@drawable/edit" />
+
+        <ImageView
+            android:id="@+id/DrugsList_Delete"
+            android:layout_width="60dp"
+
+            android:layout_height="100dp"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/delete" />
+
+    </RelativeLayout>
+
+</LinearLayout>

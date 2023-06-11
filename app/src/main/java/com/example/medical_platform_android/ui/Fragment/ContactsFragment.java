@@ -49,7 +49,7 @@ public class ContactsFragment extends Fragment {
         rootView = inflater.inflate(R.layout.fragment_contacts, container, false);
         initView();
         getDataFromNet();
-        setListeners();
+        //setListeners();
         return rootView;
     }
 

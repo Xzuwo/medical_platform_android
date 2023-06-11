@@ -1,17 +1,22 @@
 package com.example.medical_platform_android;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.Menu;
 
+import com.example.medical_platform_android.ui.Fragment.ContactsFragment;
+import com.example.medical_platform_android.ui.activity.ChatActivity;
+import com.example.medical_platform_android.ui.activity.ContactsActivity;
 import com.example.medical_platform_android.ui.bottom_fragment.HomeFragment;
 //import com.example.medical_platform_android.ui.gallery.GalleryFragment;
 import com.example.medical_platform_android.ui.side_menu.NavGraphEmptyFragment;
 import com.example.medical_platform_android.ui.side_menu.SideLogOutFragment;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.android.material.navigation.NavigationView;
@@ -39,6 +44,7 @@ public class NavigationActivity extends AppCompatActivity {
 
     private BottomNavigationView navView;
     private NavController navController;
+    private FloatingActionButton floatingActionButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -129,10 +135,19 @@ public class NavigationActivity extends AppCompatActivity {
 
             }
         });
+
+        floatingActionButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(NavigationActivity.this, ContactsActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void initView(){
         navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_navigation);
+        floatingActionButton = this.findViewById(R.id.fab);
     }
 
     @Override

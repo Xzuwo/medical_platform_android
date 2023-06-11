@@ -14,6 +14,10 @@
         android:icon="@drawable/icon_like"
         android:title="我的喜欢" />
     <item
+        android:id="@+id/side_address"
+        android:icon="@drawable/icon_address"
+        android:title="我的地址"/>
+    <item
         android:id="@+id/side_pharmaceutical_certification"
         android:icon="@drawable/icon_pharmaceutical"
         android:title="药厂认证" />

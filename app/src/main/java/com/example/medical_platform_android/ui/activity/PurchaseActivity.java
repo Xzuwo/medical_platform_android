@@ -87,7 +87,7 @@ public class PurchaseActivity extends AppCompatActivity {
                 String text = edtQuantity.getText().toString();
                 num = Integer.parseInt(text);
                 if(num < Integer.parseInt(drugs.getB()))
-                    num ++;
+                num ++;
                 edtQuantity.setText(num + "");
             }
         });

@@ -31,7 +31,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.medical_platform_android.Interface.MyOnItemClickListener;
 import com.example.medical_platform_android.R;
 import com.example.medical_platform_android.activity.Login;
-import com.example.medical_platform_android.adapter.DectorsLsitAdapter;
+//import com.example.medical_platform_android.adapter.DectorsLsitAdapter;
 import com.example.medical_platform_android.adapter.PostsListAdapter;
 
 import com.example.medical_platform_android.entity.Doctors;
@@ -108,7 +108,7 @@ public class HomeFragment extends Fragment {
     private void setAdapter(int tagId) {
         //获取数据
         HashMap<String,Object> t=new HashMap<>();
-        t.put("userid", SPUtil.getString(getActivity(),"userId"));
+        t.put("userid", SPUtil.getString(getActivity(),"userid"));
         t.put("page",page);
         t.put("tagId",tagId);
 
