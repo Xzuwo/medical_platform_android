@@ -5,6 +5,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -63,21 +64,21 @@ public class DialogShowComments extends BottomSheetDialogFragment {
     }
 
     private void setAdapter() {
-        LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
 
-//        linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-//        commentsRecyclerView.setLayoutManager(linearLayoutManager);
+        ((Activity)context).runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                LinearLayoutManager linearLayoutManager = new LinearLayoutManager(getActivity(),RecyclerView.VERTICAL,false);
 
-        CommentsListAdapter commentsListAdapter = new CommentsListAdapter(commentsList,getActivity());
-        commentsRecyclerView.setAdapter(commentsListAdapter);
-//                            fragment_home_content_list.setLayoutManager(linearLayoutManager);
-//                            PostsListAdapter postsListAdapter = new PostsListAdapter(da.getDataobject(),getActivity());
-//                            fragment_home_content_list.setAdapter(postsListAdapter);
+                CommentsListAdapter commentsListAdapter = new CommentsListAdapter(commentsList,getActivity());
+                commentsRecyclerView.setAdapter(commentsListAdapter);
 
-//                          添加下划线
 
-        commentsRecyclerView.addItemDecoration(new DividerItemDecoration(Color.GRAY, 5));
+                commentsRecyclerView.addItemDecoration(new DividerItemDecoration(Color.GRAY, 5));
 
+
+            }
+        });
 
 
     }
@@ -137,11 +138,11 @@ public class DialogShowComments extends BottomSheetDialogFragment {
                         });
                     }else{
                         HashMap<String,Object> t=new HashMap<>();
-                        t.put("user_id",SPUtil.getString(context,"userid"));
-                        t.put("post_id",postId);
+                        t.put("userId",SPUtil.getString(context,"userid"));
+                        t.put("postId",postId);
                         t.put("content",comment);
 
-                        OkhttpUtil.postRequest(UrlConstants.xzw_url + "", t, new ResponseCallback() {
+                        OkhttpUtil.postRequest(UrlConstants.xzw_url + "comments/addComment", t, new ResponseCallback() {
                             @Override
                             public void response(String res) {
                                 DataNullResponse dataNullResponse = new Gson().fromJson(res, DataNullResponse.class);
@@ -164,7 +165,7 @@ public class DialogShowComments extends BottomSheetDialogFragment {
 
                             @Override
                             public void failure(Exception e) {
-
+                                Log.d("TAG", "failure: 连接报错————————"+e);
                             }
                         });
 

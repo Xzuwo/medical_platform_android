@@ -21,7 +21,7 @@ public class SPUtil {
 
     //    判断有没有用户登录
     public static boolean loginStar(Context context){
-        if(getString(context,"userid")!=null&&getString(context,"userid")!=null){
+        if(getString(context,"userid")==null&&getString(context,"userid").equals("")){
             return false;
         }else{
             return true;
