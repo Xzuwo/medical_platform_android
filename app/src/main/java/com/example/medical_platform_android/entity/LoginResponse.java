@@ -1,7 +1,6 @@
 package com.example.medical_platform_android.entity;
 
 public class LoginResponse {
-
     private int code;
     private String msg;
     private String token;

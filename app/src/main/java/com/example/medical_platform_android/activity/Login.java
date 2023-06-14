@@ -7,23 +7,22 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
-import androidx.fragment.app.FragmentTransaction;
 
-import com.bumptech.glide.Glide;
 import com.example.medical_platform_android.NavigationActivity;
 import com.example.medical_platform_android.R;
 import com.example.medical_platform_android.entity.FindRoleNameResponse;
+//import com.example.medical_platform_android.entity.FindRoleNameResponse;
 import com.example.medical_platform_android.entity.LoginResponse;
 
 import com.example.medical_platform_android.entity.ShowHeadImageResponse;
 import com.example.medical_platform_android.ui.Fragment.UsersListFragment;
+
+import com.example.medical_platform_android.entity.ShowHeadImageResponse;
+//import com.example.medical_platform_android.ui.Fragment.UsersListFragment;
 import com.example.medical_platform_android.utils.OkhttpUtil;
 import com.example.medical_platform_android.utils.ResponseCallback;
 import com.example.medical_platform_android.utils.SPUtil;
@@ -34,11 +33,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity {
+
     private Button login;
     private ImageView headImage;
     private TextView toRegister;
     private TextView LUsername, LPassword;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,12 +83,9 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent = new Intent(Login.this, Register.class);
                 startActivity(intent);
-                finish();
             }
         });
     }
-
-
 
     private void CheckLogin() {
         String url = UrlConstants.login_url;
@@ -118,46 +114,9 @@ public class Login extends AppCompatActivity {
                             SPUtil.saveString(Login.this,"token",token);
                             SPUtil.saveString(Login.this,"userId",id);
                             SPUtil.saveString(Login.this,"username",username);
-                            SPUtil.saveString(Login.this,"password",user_Password);
-                            SPUtil.saveString(Login.this,"name",name);
-                            SPUtil.saveString(Login.this,"birthdate",birthdate);
-                            SPUtil.saveString(Login.this,"gender",gender);
-                            SPUtil.saveString(Login.this,"headImage",headImage);
-                            SPUtil.saveString(Login.this,"medication_history",medication_history);
-                            System.out.println(medication_history);
-
-                            String url = UrlConstants.findRoleName;
-                            Map<String ,Object> params1 = new HashMap<>();
-                            params1.put("userId",id);
-                            OkhttpUtil.postRequest(url, params1, new ResponseCallback() {
-                                @Override
-                                public void response(String res) {
-                                    runOnUiThread(new Runnable() {
-                                        @Override
-                                        public void run() {
-                                            FindRoleNameResponse findRoleNameResponse = new Gson().fromJson(res,FindRoleNameResponse.class);
-                                            if(findRoleNameResponse != null) {
-                                                SPUtil.saveString(Login.this,"CurrentRole",findRoleNameResponse.getRoleName());
-                                                Intent intent;
-                                                if(SPUtil.getString(Login.this,"CurrentRole").equals("管理员")) {
-                                                    intent = new Intent(Login.this, ManagerHome.class);
-                                                }else{
-                                                    intent = new Intent(Login.this, NavigationActivity.class);
-                                                }
-                                                startActivity(intent);
-                                                finish();
-                                                LUsername.removeTextChangedListener(mTextWatcher);
-                                            }
-                                        }
-                                    });
-                                }
-
-                                @Override
-                                public void failure(Exception e) {
-
-                                }
-                            });
-
+                            Intent intent = new Intent(Login.this, NavigationActivity.class);
+                            startActivity(intent);
+                            finish();
                         }else{
                             Toast.makeText(Login.this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                         }
