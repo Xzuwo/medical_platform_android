@@ -7,11 +7,13 @@ import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.medical_platform_android.NavigationActivity;
 import com.example.medical_platform_android.R;
 import com.example.medical_platform_android.entity.FindRoleNameResponse;
