@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -12,11 +13,18 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.bumptech.glide.Glide;
 import com.example.medical_platform_android.NavigationActivity;
 import com.example.medical_platform_android.R;
+import com.example.medical_platform_android.entity.FindRoleNameResponse;
+//import com.example.medical_platform_android.entity.FindRoleNameResponse;
 import com.example.medical_platform_android.entity.LoginResponse;
 
 import com.example.medical_platform_android.entity.ShowHeadImageResponse;
+import com.example.medical_platform_android.ui.Fragment.UsersListFragment;
+
+import com.example.medical_platform_android.entity.ShowHeadImageResponse;
+//import com.example.medical_platform_android.ui.Fragment.UsersListFragment;
 import com.example.medical_platform_android.utils.OkhttpUtil;
 import com.example.medical_platform_android.utils.ResponseCallback;
 import com.example.medical_platform_android.utils.SPUtil;
@@ -27,11 +35,11 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class Login extends AppCompatActivity {
+
     private Button login;
     private ImageView headImage;
     private TextView toRegister;
     private TextView LUsername, LPassword;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -51,6 +59,7 @@ public class Login extends AppCompatActivity {
             public void onClick(View view) {
                 Intent intent=new Intent(Login.this,NavigationActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 
@@ -102,20 +111,14 @@ public class Login extends AppCompatActivity {
                             String birthdate = loginResponse.getBirthdate();
                             String gender = loginResponse.getGender();
                             String headImage = loginResponse.getHeadImage();
+                            String user_Password = loginResponse.getPassword();
                             String medication_history = loginResponse.getMedication_history();
                             SPUtil.saveString(Login.this,"token",token);
                             SPUtil.saveString(Login.this,"userId",id);
                             SPUtil.saveString(Login.this,"username",username);
-                            SPUtil.saveString(Login.this,"name",name);
-                            SPUtil.saveString(Login.this,"birthdate",birthdate);
-                            SPUtil.saveString(Login.this,"gender",gender);
-                            SPUtil.saveString(Login.this,"headImage",headImage);
-                            SPUtil.saveString(Login.this,"medication_history",medication_history);
-                            System.out.println(medication_history);
                             Intent intent = new Intent(Login.this, NavigationActivity.class);
                             startActivity(intent);
                             finish();
-                            LUsername.removeTextChangedListener(mTextWatcher);
                         }else{
                             Toast.makeText(Login.this, loginResponse.getMsg(), Toast.LENGTH_SHORT).show();
                         }
@@ -149,10 +152,11 @@ public class Login extends AppCompatActivity {
                             @Override
                             public void run() {
                                 ShowHeadImageResponse showHeadImageResponse = new Gson().fromJson(res,ShowHeadImageResponse.class);
-                                System.out.println(showHeadImageResponse.getCode());
+                                //System.out.println(showHeadImageResponse.getCode());
                                 if(showHeadImageResponse != null && showHeadImageResponse.getCode() == 200) {
-                                    int resourceId = getResources().getIdentifier(showHeadImageResponse.getUser().getHeadImage() + "", "drawable", getPackageName());
-                                    headImage.setImageResource(resourceId);
+                                    Glide.with(Login.this).load(showHeadImageResponse.getUser().getHeadImage()).into(headImage);
+//                                    int resourceId = getResources().getIdentifier(showHeadImageResponse.getUser().getHeadImage() + "", "drawable", getPackageName());
+//                                    headImage.setImageResource(resourceId);
                                 }else{
                                     headImage.setImageResource(R.drawable.main_user);
                                 }

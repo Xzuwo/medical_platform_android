@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.Fragment.HomeHeaderFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/header"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="?attr/actionBarSize"-->
+<!--        android:background="#FBF3F3">-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/back_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentStart="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:padding="8dp"-->
+<!--            android:src="@drawable/ic_back" />-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/title"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_centerInParent="true"-->
+<!--            android:text="Chat"-->
+<!--            android:textColor="@android:color/white"-->
+<!--            android:textSize="18sp" />-->
+
+<!--        <ImageView-->
+<!--            android:id="@+id/menu_button"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentEnd="true"-->
+<!--            android:layout_centerVertical="true"-->
+<!--            android:padding="8dp"-->
+<!--            android:src="@drawable/ic_menu" />-->
+
+<!--    </RelativeLayout>-->
+
+
+</FrameLayout>

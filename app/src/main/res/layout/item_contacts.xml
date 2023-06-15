@@ -2,7 +2,8 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:padding="10dp"
+    android:paddingHorizontal="10dp"
+    android:paddingTop="10dp"
     android:orientation="vertical">
 
     <RelativeLayout
@@ -31,5 +32,11 @@
             android:textSize="24dp"
             android:text="时 间"/>
     </RelativeLayout>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="#DDDDDD"
+        android:layout_marginTop="10.25dp"
+        android:layout_marginLeft="80dp"/>
 
 </LinearLayout>

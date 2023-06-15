@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.ManagerHome"
+    android:orientation="vertical">
+
+    <ImageView
+        android:id="@+id/Manager_Back"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:src="@drawable/back"
+        android:layout_marginTop="30dp"
+        android:layout_marginLeft="0dp"/>
+
+    <RelativeLayout
+        android:id="@+id/Manager_UserList"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+
+        <TextView
+            android:id="@+id/Manager_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="管理员系统"
+            android:layout_marginTop="30dp"
+            android:textSize="40sp"/>
+        <Button
+            android:id="@+id/Users_List_details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看人物信息"
+            android:layout_marginTop="120dp"
+            android:textSize="25sp"/>
+
+        <Button
+            android:id="@+id/Drugs_List_Details"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="查看药品信息"
+            android:layout_marginTop="200dp"
+            android:textSize="25sp"/>
+    </RelativeLayout>
+</RelativeLayout>

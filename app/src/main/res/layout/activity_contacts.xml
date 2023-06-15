@@ -6,6 +6,30 @@
     android:layout_height="match_parent"
     tools:context=".ui.activity.ContactsActivity">
 
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:id="@+id/header_xiangqing"
+        android:background="#f9f4f4"
+        >
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/xiangqingye"
+            android:layout_centerInParent="true"
+            android:text="联系人"
+            android:textColor="#000"
+            android:textSize="18sp"
+            />
+        <ImageView
+            android:id="@+id/return_icons"
+            android:layout_width="35dp"
+            android:layout_height="35dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="8dp"
+            android:src="@drawable/ic_return"/>
+    </RelativeLayout>
     <LinearLayout
         android:id="@+id/ll_main_content"
         android:layout_width="match_parent"

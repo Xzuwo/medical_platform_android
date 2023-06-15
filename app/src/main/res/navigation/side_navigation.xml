@@ -44,6 +44,11 @@
         android:label="我的喜欢"
         tools:layout="@layout/fragment_like" />
     <fragment
+        android:id="@+id/side_address"
+        android:name="com.example.medical_platform_android.ui.side_menu.AddressFragment"
+        android:label="我的地址"
+        tools:layout="@layout/fragment_address"/>
+    <fragment
         android:id="@+id/side_pharmaceutical_certification"
         android:name="com.example.medical_platform_android.ui.side_menu.PharmaceuticalCertificationFragment"
         android:label="药厂认证"

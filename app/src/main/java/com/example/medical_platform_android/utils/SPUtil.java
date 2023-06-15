@@ -18,4 +18,16 @@ public class SPUtil {
         SharedPreferences sp = context.getSharedPreferences("sp_info",Context.MODE_PRIVATE);
         sp.edit().remove(key).commit();
     }
+
+    //    判断有没有用户登录
+    public static boolean loginStar(Context context){
+        if(getString(context,"userid")==null&&getString(context,"userid").equals("")){
+            return false;
+        }else{
+            return true;
+        }
+
+
+    }
+
 }

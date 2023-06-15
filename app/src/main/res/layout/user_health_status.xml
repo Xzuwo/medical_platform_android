@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:context=".ui.side_menu.SidePersonalFragment">
+
+    <LinearLayout
+        android:id="@+id/personal_head"
+        android:background="@drawable/gray"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_marginTop="30dp">
+            <TextView
+                android:layout_centerHorizontal="true"
+                android:layout_centerVertical="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户健康状况"
+                android:textSize="40sp" />
+        </RelativeLayout>
+
+
+
+
+        <LinearLayout
+            android:gravity="center"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="40dp">
+
+            <LinearLayout
+                android:layout_width="430dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@drawable/count"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="用户编号:"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:id="@+id/Health_Status_UserId"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="430dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@drawable/heart_rate"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="用户心率:"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:id="@+id/Health_Status_HeartRate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="430dp"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp"
+                android:orientation="horizontal">
+                <ImageView
+                    android:src="@drawable/blood_oxygen"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="用户血氧:"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:id="@+id/Health_Status_Blood_Oxygen"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="430dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp">
+                <ImageView
+                    android:src="@drawable/sleep"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+
+                <TextView
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="睡眠状况:"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:id="@+id/Health_Status_SleepStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="430dp"
+                android:layout_height="match_parent"
+                android:orientation="horizontal"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="50dp">
+                <ImageView
+                    android:src="@drawable/indicator"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp" />
+                <TextView
+                    android:id="@+id/click_Change_medication"
+                    android:layout_width="150dp"
+                    android:layout_height="wrap_content"
+                    android:text="用户体征:"
+                    android:layout_marginLeft="20dp"
+                    android:textSize="30sp"/>
+
+                <TextView
+                    android:id="@+id/Health_Status_indicator"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="30sp"/>
+            </LinearLayout>
+
+
+        </LinearLayout>
+
+    </LinearLayout>
+
+</RelativeLayout>

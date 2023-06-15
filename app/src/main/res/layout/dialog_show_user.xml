@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#00000000"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <androidx.cardview.widget.CardView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="16dp"
+        app:cardElevation="8dp"
+        android:background="#00000000"
+        app:cardUseCompatPadding="true"
+
+        tools:ignore="MissingConstraints">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:id="@+id/dialog_main"
+            android:background="#C5D8EA"
+            android:padding="16dp">
+
+            <!-- 用户头像 -->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+                <androidx.cardview.widget.CardView
+                    android:id="@+id/Login_img_item_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:cardCornerRadius="50dp"
+                    android:layout_centerHorizontal="true"
+                    android:scaleType="centerCrop" >
+
+                    <ImageView
+                        android:id="@+id/dialog_user_avatar"
+                        android:layout_width="96dp"
+                        android:layout_height="96dp"
+                        android:src="@drawable/icon_pharmaceutical"
+
+                        android:layout_gravity="center_horizontal"
+
+                        android:background="@drawable/avatar_bg"
+                        />
+                </androidx.cardview.widget.CardView>
+            </RelativeLayout>
+
+
+
+            <!-- 用户名和简介 -->
+            <TextView
+                android:id="@+id/dialog_user_username"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户名"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:layout_marginTop="16dp"
+                />
+
+            <TextView
+                android:id="@+id/dialog_user_introduction"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="用户简介"
+                android:textSize="16sp"
+                android:textColor="#999999"
+                android:layout_marginTop="8dp"
+                />
+
+            <!-- 用户认证 -->
+            <TextView
+                android:id="@+id/dialog_user_authentication"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="已认证"
+                android:textSize="12sp"
+                android:textColor="#00C853"
+                android:layout_marginTop="8dp"
+                />
+
+            <!-- 关注和对话按钮 -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_horizontal"
+                android:id="@+id/layout_dialog_button"
+                android:layout_marginTop="16dp">
+
+                <ImageView
+                    android:id="@+id/dialog_user_follow"
+                    android:src="@drawable/button_follow"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:text="关注"
+                    android:textColor="@color/white"
+                    android:background="@drawable/button_follow"
+                    android:layout_marginEnd="16dp"
+                    />
+
+                <ImageView
+                    android:id="@+id/dialog_user_chat"
+                    android:layout_width="48dp"
+                    android:layout_height="48dp"
+                    android:src="@drawable/dialogue"
+                    android:background="@drawable/chat_bg"
+                    android:padding="12dp"
+                    android:layout_gravity="center_horizontal"
+                    android:layout_marginStart="16dp"
+                    />
+
+            </LinearLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

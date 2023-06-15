@@ -1,22 +1,139 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ui.bottom_fragment.HomeFragment">
+    android:background="#E4D7D7"
+    android:id="@+id/home_drawer_layout"
+    tools:context=".ui.bottom_fragment.HomeFragment"
+    tools:ignore="InvalidId">
 
-    <TextView
-        android:id="@+id/text_home"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginEnd="8dp"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <!-- 头部区域 -->
+            <RelativeLayout
+                android:id="@+id/itheader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white">
+
+                <ImageView
+                    android:layout_width="51dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="16dp"
+                    android:paddingHorizontal="10dp"
+                    android:id="@+id/navigation_button"
+                    android:src="@drawable/navigation_button"/>
+                <!-- 搜索框 -->
+                <EditText
+                    android:id="@+id/search_box"
+                    android:layout_width="400dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginLeft="50dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginRight="16dp"
+                    android:drawableLeft="@drawable/icon_search"
+
+                    android:drawablePadding="8dp"
+                    android:hint="搜索"
+                    android:paddingLeft="30dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="16dp"
+                    android:paddingBottom="8dp"
+                    android:textColor="#000000"
+                    android:textColorHint="@color/black"
+                    android:textSize="14sp"
+                    android:backgroundTint="#CCC3C3"
+                    android:backgroundTintMode="src_over"
+                    android:background="@drawable/edittext_bg"/>
+
+
+                <!-- 搜索按钮 -->
+                <Button
+                    android:id="@+id/search_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignBaseline="@id/search_box"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="10dp"
+                    android:background="#00FFFFFF"
+                    android:text="搜索"
+                    android:textColor="@color/black"
+                    android:textSize="12dp" />
+
+            </RelativeLayout>
+
+            <!-- 分类导航栏 -->
+            <HorizontalScrollView
+                android:id="@+id/category_nav"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/white"
+                android:layout_marginTop="70dp"
+                android:paddingLeft="16dp"
+                android:paddingRight="16dp">
+                <!--            android:layout_below="@id/header"-->
+
+                <com.google.android.material.tabs.TabLayout
+                    android:id="@+id/fragment_home_tab_layout"
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    app:tabTextColor="#817F7F"
+                    app:tabSelectedTextColor="#000000"
+                    app:tabIndicatorColor="#DCD9D9"
+                    app:tabMode="scrollable"
+                    app:tabContentStart="56dp">
+
+
+                </com.google.android.material.tabs.TabLayout>
+
+            </HorizontalScrollView>
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="test"
+                android:id="@+id/home_test"/>
+            <!-- 内容列表 -->
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/fragment_refresh_load"
+                android:layout_marginTop="120dp"
+                android:layout_marginBottom="50dp"
+                >
+
+                <com.scwang.smart.refresh.header.ClassicsHeader
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/fragment_home_content_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/category_nav"
+                    android:background="@drawable/background_color"
+
+                    />
+
+                <com.scwang.smart.refresh.footer.ClassicsFooter
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"/>
+
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>
